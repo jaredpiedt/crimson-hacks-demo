@@ -10,21 +10,9 @@
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
-
-    <!-- Javascript-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" />-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />-->
-    <script src="jquery.min.js" />
-    <script src="bootstrap.min.js" />
   </head>
 
   <body>
-    <script type="text/javascript">
-      $(document).ready(function() {
-
-      });
-    </script>
-
     <!-- Navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -49,8 +37,10 @@
           <!-- Tweet Input -->
           <div class="row">
             <div class="panel-body tweet-input-panel">
-              <textarea class="form-control" rows="3" placeholder="What's happening?"></textarea>
-              <button id="submitTweet" type="button" class="btn btn-primary">Tweet</button>
+              <form id="tweetForm">
+                <textarea id="tweet" class="form-control" rows="3" placeholder="What's happening?"></textarea>
+                <button id="submitTweet" type="submit" class="btn btn-primary">Tweet</button>
+              </form>
             </div>
           </div>
 
@@ -68,11 +58,20 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
-      
     <div>
+
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#tweetForm').submit(function(e) {
+          e.preventDefault();
+          var tweet = $('#tweet').val();
+          alert(tweet);
+        })
+      });
+    </script>
   </body>
 </html>
