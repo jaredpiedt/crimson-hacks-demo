@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Crimson Hacks Demo</title>
+
+    <!-- CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <!-- Javascript-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" />-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />-->
+    <script src="jquery.min.js" />
+    <script src="bootstrap.min.js" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+      });
+    </script>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" 
+            data-toggle="collapse" data-target="#navbar"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Crimson Hacks Demo</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container main-container">
+      <div class="row">
+        <div class="col-lg-6 col-md-8 col-lg-offset-3 col-md-offset-2">
+          
+          <!-- Tweet Input -->
+          <div class="row">
+            <div class="panel-body tweet-input-panel">
+              <textarea class="form-control" rows="3" placeholder="What's happening?"></textarea>
+              <button id="submitTweet" type="button" class="btn btn-primary">Tweet</button>
+            </div>
+          </div>
+
+          <!-- Tweet List -->
+          <div id="tweets" class="row">
+            <div class="tweet-details">
+              <div class="panel-body">
+                <div class="profile">
+                  <img src="person.png" />
+                </div>
+                <div class="tweet-info">
+                  <h4>Jared Piedt <small>@jaredpiedt</small></h4>
+                  <p>Hello, world!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      
+    <div>
+  </body>
+</html>

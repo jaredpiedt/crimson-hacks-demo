@@ -1,0 +1,70 @@
+.navbar {
+  background-color: #990000;
+  border: none;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #fff;
+}
+
+.main-container {
+  margin-top: 66px;
+}
+
+.tweet-input-panel {
+  background-color: rgba(153, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 16px;
+}
+
+#submitTweet {
+  float: right;
+  margin-top: 16px;
+}
+
+.btn-primary {
+  background-color: #990000;
+  border-color: #880000;
+}
+
+.btn-primary:hover {
+  background-color: #880000;
+  border-color: #770000;
+}
+
+.form-control:focus {
+  border-color: #bbb;
+  box-shadow: none;
+}
+
+.tweet-details .panel-body {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#tweets {
+  margin-top: 36px;
+}
+
+.profile {
+  border-radius: 6px;
+  height: 48px;
+  width: 48px;
+  background-color: rgba(153, 0, 0, 0.7);
+  padding: 4px;
+  float: left;
+  margin-right: 16px;
+}
+
+.profile img {
+  width: 100%;
+}
+
+.tweet-info {
+  float: left;
+}
+
+.tweet-info h4 {
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
