@@ -121,7 +121,14 @@
 
         $('#tweet').on('input property', function () {
           console.log('here');
-          $('.character-count').text($(this).val().length);
+          const maxLength = 140;
+          var count = $(this).val().length;
+
+          if (count > maxLength) {
+            $('.character-count').text(maxLength - count).addClass('text-danger');
+          } else {
+            $('.character-count').text(count).removeClass('text-danger');
+          }      
         });
       });
     </script>
