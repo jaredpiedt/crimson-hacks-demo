@@ -37,6 +37,10 @@
   box-shadow: none;
 }
 
+.tweet-details {
+  margin-bottom: 8px;
+  }
+
 .tweet-details .panel-body {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -61,10 +65,17 @@
 }
 
 .tweet-info {
-  float: left;
+  margin-left: 54px;
+  word-wrap: break-word;
 }
 
 .tweet-info h4 {
     margin-top: 0px;
     margin-bottom: 4px;
+}
+
+.character-count {
+  float: right;
+  margin-right: 16px;
+  margin-top: 22px;
 }

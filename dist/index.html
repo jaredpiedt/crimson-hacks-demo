@@ -7,8 +7,7 @@
     <title>Crimson Hacks Demo</title>
 
     <!-- CSS -->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
   </head>
 
@@ -33,13 +32,16 @@
     <div class="container main-container">
       <div class="row">
         <div class="col-lg-6 col-md-8 col-lg-offset-3 col-md-offset-2">
-          
+          <!--  Alert -->
+          <div class="alert alert-danger" style="display: none;"></div>
+
           <!-- Tweet Input -->
           <div class="row">
             <div class="panel-body tweet-input-panel">
               <form id="tweetForm">
                 <textarea id="tweet" class="form-control" rows="3" placeholder="What's happening?"></textarea>
                 <button id="submitTweet" type="submit" class="btn btn-primary">Tweet</button>
+                <p class="character-count">0</p>
               </form>
             </div>
           </div>
@@ -62,15 +64,65 @@
       </div>
     <div>
 
-    <script src="jquery.min.js"></script>
-    <script src="bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="socket.io.js"></script>
     <script>
+      function appendTweet(text, userName, userAt) {
+          var div = $('<div>').addClass('tweet-details');
+          var panel = $('<div>').addClass('panel-body');
+          var profile = $('<div>').addClass('profile');
+          var img = $('<img>').attr('src', 'person.png');
+          var tweetInfo = $('<div>').addClass('tweet-info');
+          var userName = $('<h4>').html(userName + ' <small>' + userAt + '</small>');
+          var tweetText = $('<div>').text(text);
+
+          profile.append(img);
+          panel.append(profile);
+          
+          tweetInfo.append(userName).append(tweetText);
+          panel.append(tweetInfo);
+
+          div.append(panel)
+
+          div.prependTo('#tweets');
+      } 
+
+      function validateTweet(text) {
+        if (text.length < 1) {
+          $('.alert').text("Tweet cannot be empty.").show();
+          return false;
+        } else if (text.length > 160) {
+          $('.alert').text("Tweet must be less than 160 characters.").show();
+        } else {
+          $('.alert').hide();
+          return true;
+        }
+      }
+
       $(document).ready(function() {
-        $('#tweetForm').submit(function(e) {
+        var socket = io.connect('http://localhost:3001');
+        socket.on('tweet', function (data) {
+          alert(data.msg);
+        });
+
+        var name = "Jared Piedt";
+        var at = "jaredpiedt";
+
+        $('#tweetForm').submit(function (e) {
           e.preventDefault();
           var tweet = $('#tweet').val();
-          alert(tweet);
-        })
+          if(validateTweet(tweet)) {
+            appendTweet(tweet, name, at);
+            this.reset();
+            $('.character-count').text(0);
+          }
+        });
+
+        $('#tweet').on('input property', function () {
+          console.log('here');
+          $('.character-count').text($(this).val().length);
+        });
       });
     </script>
   </body>
